@@ -32,11 +32,3 @@ Vamos utilizar um modelo conceitual abrangente para ilustrar a implementação p
 
 ![img.png](img.png)
 
-
-## Primeira casse de dominio - Categoria
-- [ ] Atributos Básicos
-- [ ] Associações(init collections)
-- [ ] Contrutores(não inclusa collection no contrutor com parâmetros)
-- [ ] Getters e Setters
-- [ ] hashCode e equals
-- [ ] Serializable
