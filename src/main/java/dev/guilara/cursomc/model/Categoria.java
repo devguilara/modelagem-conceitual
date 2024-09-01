@@ -1,10 +1,11 @@
 package dev.guilara.cursomc.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,8 +14,15 @@ public class Categoria implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+
+
+    @ManyToMany(mappedBy = "categorias") //Mapeamento de referencia de modelagem do banco 1 - *
+    private List<Produto> produtos = new ArrayList<>();
+
+
 
     public Categoria(){
         //Construtor
@@ -42,7 +50,13 @@ public class Categoria implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
 
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
 
     //HashCode Equals -> operações para comparar o valor nao pelo ponteiro de memória
 
